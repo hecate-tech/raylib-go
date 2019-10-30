@@ -1,10 +1,12 @@
-github.com/blezek/tga v0.0.0-20150626111426-80720cbc1017 h1:TWk6m6k3qegbUZsdsHk/ix22ANqPgLau40bPwiNQN40=
-github.com/blezek/tga v0.0.0-20150626111426-80720cbc1017/go.mod h1:WnX8JiQN+UtyUPq/1EIUaB2WVX3wdAmOBH5K52NyOO0=
 github.com/dsnet/compress v0.0.1 h1:PlZu0n3Tuv04TzpfPbrnI0HW/YwodEXDS+oPKahKF0Q=
 github.com/dsnet/compress v0.0.1/go.mod h1:Aw8dCMJ7RioblQeTqt88akK31OvO8Dhf5JflhBbQEHo=
 github.com/dsnet/golib v0.0.0-20171103203638-1ea166775780/go.mod h1:Lj+Z9rebOhdfkVLjJ8T6VcRQv3SXugXy999NBtR9aFY=
+github.com/frankban/quicktest v1.5.0 h1:Tb4jWdSpdjKzTUicPnY61PZxKbDoGa7ABbrReT3gQVY=
+github.com/frankban/quicktest v1.5.0/go.mod h1:jaStnuzAqU1AJdCO0l53JDCJrVDKcS03DbaAcR7Ks/o=
 github.com/golang/snappy v0.0.1 h1:Qgr9rKW7uDUkrbSmQeiDsGa8SjGyCOGtuasMWwvp2P4=
 github.com/golang/snappy v0.0.1/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEWrmP2Q=
+github.com/google/go-cmp v0.3.1 h1:Xye71clBPdm5HgqGwUkwhbynsUJZhDbS20FvLhQ2izg=
+github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/jakecoffman/cp v0.1.0 h1:sgSYEGUgfwiT447fRjloa2c5b6UyYP+7muR3gQK+Ep0=
 github.com/jakecoffman/cp v0.1.0/go.mod h1:a3xPx9N8RyFAACD644t2dj/nK4SuLg1v+jL61m2yVo4=
 github.com/jbuchbinder/gopnm v0.0.0-20150223212718-5176c556b9ce h1:SHuC5z27u3lD7x5aybCGdCMN9U01n1+bsaTGfJUPvlc=
@@ -19,6 +21,11 @@ github.com/klauspost/compress v1.4.1/go.mod h1:RyIbtBH6LamlWaDj8nUwkbUhJ87Yi3uG0
 github.com/klauspost/compress v1.9.1 h1:TWy0o9J9c6LK9C8t7Msh6IAJNXbsU/nvKLTQUU5HdaY=
 github.com/klauspost/compress v1.9.1/go.mod h1:RyIbtBH6LamlWaDj8nUwkbUhJ87Yi3uG0guNDohfE1A=
 github.com/klauspost/cpuid v1.2.0/go.mod h1:Pj4uuM528wm8OyEC2QMXAi2YiTZ96dNQPGgoMS4s3ek=
+github.com/kr/pretty v0.1.0 h1:L/CwN0zerZDmRFUapSPitk6f+Q3+0za1rQkzVuMiMFI=
+github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
+github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
+github.com/kr/text v0.1.0 h1:45sCR5RtlFHMR4UwH9sdQ5TC8v0qDQCHnXt+kaKSTVE=
+github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
 github.com/moutend/go-wav v0.0.0-20170820031854-56127fbbb7ba h1:OjLj0dIkgDrGzgLHh2dv2BGtpa8RwCqykn2ThFcOMLc=
 github.com/moutend/go-wav v0.0.0-20170820031854-56127fbbb7ba/go.mod h1:y/Ls9PBADL6vJfbt4gZbNtUS2grnEGnFg4RMsCa5g/4=
 github.com/neguse/go-box2d-lite v0.0.0-20170921151050-5d8ed9b7272b h1:+67TGbwfgeB5o03Rx+ZBW44zAQ+wUujcwdRA0p9CbJI=

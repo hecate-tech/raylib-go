@@ -3,8 +3,8 @@ module github.com/hecate-tech/raylib-go
 go 1.13
 
 require (
-	github.com/blezek/tga v0.0.0-20150626111426-80720cbc1017
 	github.com/dsnet/compress v0.0.1
+	github.com/frankban/quicktest v1.5.0 // indirect
 	github.com/golang/snappy v0.0.1
 	github.com/jakecoffman/cp v0.1.0
 	github.com/jbuchbinder/gopnm v0.0.0-20150223212718-5176c556b9ce

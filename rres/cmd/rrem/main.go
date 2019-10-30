@@ -21,7 +21,7 @@ import (
 	_ "image/jpeg"
 	_ "image/png"
 
-	"github.com/blezek/tga"
+	// "github.com/blezek/tga"
 	_ "github.com/jbuchbinder/gopnm"
 	_ "golang.org/x/image/bmp"
 
@@ -32,9 +32,9 @@ import (
 	"github.com/hecate-tech/raylib-go/rres"
 )
 
-func init() {
-	tga.RegisterFormat()
-}
+// func init() {
+// 	tga.RegisterFormat()
+// }
 
 func main() {
 	base := flag.String("base", "data", "Resources file basename")

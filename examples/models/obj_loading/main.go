@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/hecate-tech/raylib-go/raylib"
+	rl "github.com/hecate-tech/raylib-go/raylib"
 )
 
 func main() {
@@ -24,11 +24,14 @@ func main() {
 	position := rl.NewVector3(0.0, 0.0, 0.0) // Set model position
 
 	rl.SetTargetFPS(60)
+	rl.SetCameraMode(camera, rl.CameraOrbital)
 
 	for !rl.WindowShouldClose() {
+		rl.UpdateCamera(&camera)
+
 		rl.BeginDrawing()
 
-		rl.ClearBackground(rl.RayWhite)
+		rl.ClearBackground(rl.DarkGray)
 
 		rl.BeginMode3D(camera)
 
