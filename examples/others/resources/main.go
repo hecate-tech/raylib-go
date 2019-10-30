@@ -3,8 +3,8 @@ package main
 import (
 	//"bytes"
 
-	"github.com/gen2brain/raylib-go/raylib"
-	"github.com/gen2brain/raylib-go/rres"
+	"github.com/hecate-tech/raylib-go/raylib"
+	"github.com/hecate-tech/raylib-go/rres"
 )
 
 const numTextures = 4

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/gen2brain/raylib-go/raylib"
+	"github.com/hecate-tech/raylib-go/raylib"
 )
 
 const numProcesses = 8

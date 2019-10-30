@@ -2672,9 +2672,8 @@ void _glfwPlatformPollEvents(void)
 #if defined(__linux__)
     _glfwDetectJoystickConnectionLinux();
 #endif
-    XPending(_glfw.x11.display);
-
-    while (XQLength(_glfw.x11.display))
+    int count = XPending(_glfw.x11.display);
+    while (count--)
     {
         XEvent event;
         XNextEvent(_glfw.x11.display, &event);

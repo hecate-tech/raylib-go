@@ -4,7 +4,7 @@ package raymath
 import (
 	"math"
 
-	"github.com/gen2brain/raylib-go/raylib"
+	"github.com/hecate-tech/raylib-go/raylib"
 )
 
 // Vector2Zero - Vector with components value 0.0

@@ -25,7 +25,7 @@
 *
 **********************************************************************************************/
 
-#define RAYLIB_VERSION  "2.1-dev"
+#define RAYLIB_VERSION  "2.0-dev"
 
 // Edit to control what features Makefile'd raylib is compiled with
 #if defined(RAYLIB_CMAKE)
@@ -44,8 +44,6 @@
 #define SUPPORT_MOUSE_GESTURES      1
 // Use busy wait loop for timing sync, if not defined, a high-resolution timer is setup and used
 //#define SUPPORT_BUSY_WAIT_LOOP      1
-// Wait for events passively (sleeping while no events) instead of polling them actively every frame
-//#define SUPPORT_EVENTS_WAITING      1
 // Allow automatic screen capture of current screen pressing F12, defined in KeyCallback()
 #define SUPPORT_SCREEN_CAPTURE      1
 // Allow automatic gif recording of current screen pressing CTRL+F12, defined in KeyCallback()
@@ -88,12 +86,10 @@
 //#define SUPPORT_FILEFORMAT_PKM    1
 //#define SUPPORT_FILEFORMAT_PVR    1
 
-// Support image export functionality (.png, .bmp, .tga, .jpg)
-#define SUPPORT_IMAGE_EXPORT        1
-// Support multiple image editing functions to scale, adjust colors, flip, draw on images, crop...
+// Support multiple image editing functions to scale, adjust colors, flip, draw on images, crop... 
 // If not defined only three image editing functions supported: ImageFormat(), ImageAlphaMask(), ImageToPOT()
 #define SUPPORT_IMAGE_MANIPULATION  1
-// Support procedural image generation functionality (gradient, spot, perlin-noise, cellular)
+// Support proedural image generation functionality (gradient, spot, perlin-noise, cellular)
 #define SUPPORT_IMAGE_GENERATION    1
 
 
@@ -128,7 +124,7 @@
 #define SUPPORT_FILEFORMAT_XM       1
 #define SUPPORT_FILEFORMAT_MOD      1
 //#define SUPPORT_FILEFORMAT_FLAC   1
-#define SUPPORT_FILEFORMAT_MP3    1
+//#define SUPPORT_FILEFORMAT_MP3    1
 
 
 //------------------------------------------------------------------------------------
@@ -137,6 +133,10 @@
 // Show TraceLog() output messages
 // NOTE: By default LOG_DEBUG traces not shown
 #define SUPPORT_TRACELOG    1
+// Support saving image data fileformats 
+// NOTE: Requires stb_image_write library
+#define SUPPORT_SAVE_PNG    1
+//#define SUPPORT_SAVE_BMP  1
 
 
 #endif  //defined(RAYLIB_CMAKE)

@@ -6,8 +6,8 @@ package physics
 import (
 	"math"
 
-	"github.com/gen2brain/raylib-go/raylib"
-	"github.com/gen2brain/raylib-go/raymath"
+	"github.com/hecate-tech/raylib-go/raylib"
+	"github.com/hecate-tech/raylib-go/raymath"
 )
 
 // ShapeType type

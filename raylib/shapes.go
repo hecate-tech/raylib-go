@@ -112,12 +112,12 @@ func DrawRectangleRec(rec Rectangle, color Color) {
 }
 
 // DrawRectanglePro - Draw a color-filled rectangle with pro parameters
-func DrawRectanglePro(rec Rectangle, origin Vector2, rotation float32, colors []Color) {
+func DrawRectanglePro(rec Rectangle, origin Vector2, rotation float32, color Color) {
 	crec := rec.cptr()
 	corigin := origin.cptr()
 	crotation := (C.float)(rotation)
-	ccolor := (*C.Color)(unsafe.Pointer(&colors[0]))
-	C.DrawRectanglePro(*crec, *corigin, crotation, ccolor)
+	ccolor := color.cptr()
+	C.DrawRectanglePro(*crec, *corigin, crotation, *ccolor)
 }
 
 // DrawRectangleGradientV - Draw a vertical-gradient-filled rectangle
@@ -227,7 +227,7 @@ func CheckCollisionRecs(rec1, rec2 Rectangle) bool {
 	crec1 := rec1.cptr()
 	crec2 := rec2.cptr()
 	ret := C.CheckCollisionRecs(*crec1, *crec2)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -238,7 +238,7 @@ func CheckCollisionCircles(center1 Vector2, radius1 float32, center2 Vector2, ra
 	ccenter2 := center2.cptr()
 	cradius2 := (C.float)(radius2)
 	ret := C.CheckCollisionCircles(*ccenter1, cradius1, *ccenter2, cradius2)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -248,7 +248,7 @@ func CheckCollisionCircleRec(center Vector2, radius float32, rec Rectangle) bool
 	cradius := (C.float)(radius)
 	crec := rec.cptr()
 	ret := C.CheckCollisionCircleRec(*ccenter, cradius, *crec)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -266,7 +266,7 @@ func CheckCollisionPointRec(point Vector2, rec Rectangle) bool {
 	cpoint := point.cptr()
 	crec := rec.cptr()
 	ret := C.CheckCollisionPointRec(*cpoint, *crec)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -276,7 +276,7 @@ func CheckCollisionPointCircle(point Vector2, center Vector2, radius float32) bo
 	ccenter := center.cptr()
 	cradius := (C.float)(radius)
 	ret := C.CheckCollisionPointCircle(*cpoint, *ccenter, cradius)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -287,13 +287,6 @@ func CheckCollisionPointTriangle(point, p1, p2, p3 Vector2) bool {
 	cp2 := p2.cptr()
 	cp3 := p3.cptr()
 	ret := C.CheckCollisionPointTriangle(*cpoint, *cp1, *cp2, *cp3)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
-}
-
-// SetShapesTexture - Define default texture used to draw shapes
-func SetShapesTexture(texture Texture2D, source Rectangle) {
-	ctexture := texture.cptr()
-	csource := source.cptr()
-	C.SetShapesTexture(*ctexture, *csource)
 }

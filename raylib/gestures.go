@@ -16,7 +16,7 @@ func SetGesturesEnabled(gestureFlags uint32) {
 func IsGestureDetected(gesture Gestures) bool {
 	cgesture := (C.int)(gesture)
 	ret := C.IsGestureDetected(cgesture)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 

@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/gen2brain/raylib-go/raylib"
+	"github.com/hecate-tech/raylib-go/raylib"
 )
 
 // Property - GUI property

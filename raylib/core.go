@@ -58,21 +58,21 @@ func CloseWindow() {
 // IsWindowReady - Check if window has been initialized successfully
 func IsWindowReady() bool {
 	ret := C.IsWindowReady()
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
 // WindowShouldClose - Detect if KEY_ESCAPE pressed or Close icon pressed
 func WindowShouldClose() bool {
 	ret := C.WindowShouldClose()
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
 // IsWindowMinimized - Detect if window has been minimized (or lost focus)
 func IsWindowMinimized() bool {
 	ret := C.IsWindowMinimized()
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -95,90 +95,43 @@ func SetWindowTitle(title string) {
 }
 
 // SetWindowPosition - Set window position on screen (only PLATFORM_DESKTOP)
-func SetWindowPosition(x, y int) {
+func SetWindowPosition(x, y int32) {
 	cx := (C.int)(x)
 	cy := (C.int)(y)
 	C.SetWindowPosition(cx, cy)
 }
 
 // SetWindowMonitor - Set monitor for the current window (fullscreen mode)
-func SetWindowMonitor(monitor int) {
+func SetWindowMonitor(monitor int32) {
 	cmonitor := (C.int)(monitor)
 	C.SetWindowMonitor(cmonitor)
 }
 
 // SetWindowMinSize - Set window minimum dimensions (for FLAG_WINDOW_RESIZABLE)
-func SetWindowMinSize(w, h int) {
+func SetWindowMinSize(w, h int32) {
 	cw := (C.int)(w)
 	ch := (C.int)(h)
 	C.SetWindowMinSize(cw, ch)
 }
 
 // SetWindowSize - Set window dimensions
-func SetWindowSize(w, h int) {
+func SetWindowSize(w, h int32) {
 	cw := (C.int)(w)
 	ch := (C.int)(h)
 	C.SetWindowSize(cw, ch)
 }
 
 // GetScreenWidth - Get current screen width
-func GetScreenWidth() int {
+func GetScreenWidth() int32 {
 	ret := C.GetScreenWidth()
-	v := (int)(ret)
+	v := (int32)(ret)
 	return v
 }
 
 // GetScreenHeight - Get current screen height
-func GetScreenHeight() int {
+func GetScreenHeight() int32 {
 	ret := C.GetScreenHeight()
-	v := (int)(ret)
-	return v
-}
-
-// GetMonitorCount - Get number of connected monitors
-func GetMonitorCount() int {
-	ret := C.GetMonitorCount()
-	v := (int)(ret)
-	return v
-}
-
-// GetMonitorWidth - Get primary monitor width
-func GetMonitorWidth(monitor int) int {
-	cmonitor := (C.int)(monitor)
-	ret := C.GetMonitorWidth(cmonitor)
-	v := (int)(ret)
-	return v
-}
-
-// GetMonitorHeight - Get primary monitor height
-func GetMonitorHeight(monitor int) int {
-	cmonitor := (C.int)(monitor)
-	ret := C.GetMonitorHeight(cmonitor)
-	v := (int)(ret)
-	return v
-}
-
-// GetMonitorPhysicalWidth - Get primary monitor physical width in millimetres
-func GetMonitorPhysicalWidth(monitor int) int {
-	cmonitor := (C.int)(monitor)
-	ret := C.GetMonitorPhysicalWidth(cmonitor)
-	v := (int)(ret)
-	return v
-}
-
-// GetMonitorPhysicalHeight - Get primary monitor physical height in millimetres
-func GetMonitorPhysicalHeight(monitor int) int {
-	cmonitor := (C.int)(monitor)
-	ret := C.GetMonitorPhysicalHeight(cmonitor)
-	v := (int)(ret)
-	return v
-}
-
-// GetMonitorName - Get the human-readable, UTF-8 encoded name of the primary monitor
-func GetMonitorName(monitor int) string {
-	cmonitor := (C.int)(monitor)
-	ret := C.GetMonitorName(cmonitor)
-	v := C.GoString(ret)
+	v := (int32)(ret)
 	return v
 }
 
@@ -409,7 +362,7 @@ func StorageLoadValue(position int32) int32 {
 func IsKeyPressed(key int32) bool {
 	ckey := (C.int)(key)
 	ret := C.IsKeyPressed(ckey)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -417,7 +370,7 @@ func IsKeyPressed(key int32) bool {
 func IsKeyDown(key int32) bool {
 	ckey := (C.int)(key)
 	ret := C.IsKeyDown(ckey)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -425,7 +378,7 @@ func IsKeyDown(key int32) bool {
 func IsKeyReleased(key int32) bool {
 	ckey := (C.int)(key)
 	ret := C.IsKeyReleased(ckey)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -433,7 +386,7 @@ func IsKeyReleased(key int32) bool {
 func IsKeyUp(key int32) bool {
 	ckey := (C.int)(key)
 	ret := C.IsKeyUp(ckey)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -454,7 +407,7 @@ func SetExitKey(key int32) {
 func IsGamepadAvailable(gamepad int32) bool {
 	cgamepad := (C.int)(gamepad)
 	ret := C.IsGamepadAvailable(cgamepad)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -464,7 +417,7 @@ func IsGamepadName(gamepad int32, name string) bool {
 	cname := C.CString(name)
 	defer C.free(unsafe.Pointer(cname))
 	ret := C.IsGamepadName(cgamepad, cname)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -481,7 +434,7 @@ func IsGamepadButtonPressed(gamepad, button int32) bool {
 	cgamepad := (C.int)(gamepad)
 	cbutton := (C.int)(button)
 	ret := C.IsGamepadButtonPressed(cgamepad, cbutton)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -490,7 +443,7 @@ func IsGamepadButtonDown(gamepad, button int32) bool {
 	cgamepad := (C.int)(gamepad)
 	cbutton := (C.int)(button)
 	ret := C.IsGamepadButtonDown(cgamepad, cbutton)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -499,7 +452,7 @@ func IsGamepadButtonReleased(gamepad, button int32) bool {
 	cgamepad := (C.int)(gamepad)
 	cbutton := (C.int)(button)
 	ret := C.IsGamepadButtonReleased(cgamepad, cbutton)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -508,7 +461,7 @@ func IsGamepadButtonUp(gamepad, button int32) bool {
 	cgamepad := (C.int)(gamepad)
 	cbutton := (C.int)(button)
 	ret := C.IsGamepadButtonUp(cgamepad, cbutton)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -540,7 +493,7 @@ func GetGamepadAxisMovement(gamepad, axis int32) float32 {
 func IsMouseButtonPressed(button int32) bool {
 	cbutton := (C.int)(button)
 	ret := C.IsMouseButtonPressed(cbutton)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -548,7 +501,7 @@ func IsMouseButtonPressed(button int32) bool {
 func IsMouseButtonDown(button int32) bool {
 	cbutton := (C.int)(button)
 	ret := C.IsMouseButtonDown(cbutton)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -556,7 +509,7 @@ func IsMouseButtonDown(button int32) bool {
 func IsMouseButtonReleased(button int32) bool {
 	cbutton := (C.int)(button)
 	ret := C.IsMouseButtonReleased(cbutton)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 
@@ -564,7 +517,7 @@ func IsMouseButtonReleased(button int32) bool {
 func IsMouseButtonUp(button int32) bool {
 	cbutton := (C.int)(button)
 	ret := C.IsMouseButtonUp(cbutton)
-	v := bool(ret)
+	v := bool(int(ret) == 1)
 	return v
 }
 

@@ -1,5 +1,5 @@
 /*
-Package raylib - Go bindings for raylib, a simple and easy-to-use library to learn videogames programming.
+package rl - Go bindings for raylib, a simple and easy-to-use library to learn videogames programming.
 
 raylib is highly inspired by Borland BGI graphics lib and by XNA framework.
 
@@ -14,21 +14,21 @@ Example:
 	import "github.com/gen2brain/raylib-go/raylib"
 
 	func main() {
-		rl.InitWindow(800, 450, "raylib [core] example - basic window")
+		raylib.InitWindow(800, 450, "raylib [core] example - basic window")
 
-		rl.SetTargetFPS(60)
+		raylib.SetTargetFPS(60)
 
-		for !rl.WindowShouldClose() {
-			rl.BeginDrawing()
+		for !raylib.WindowShouldClose() {
+			raylib.BeginDrawing()
 
-			rl.ClearBackground(rl.RayWhite)
+			raylib.ClearBackground(raylib.RayWhite)
 
-			rl.DrawText("Congrats! You created your first window!", 190, 200, 20, rl.LightGray)
+			raylib.DrawText("Congrats! You created your first window!", 190, 200, 20, raylib.LightGray)
 
-			rl.EndDrawing()
+			raylib.EndDrawing()
 		}
 
-		rl.CloseWindow()
+		raylib.CloseWindow()
 	}
 
 
@@ -174,8 +174,8 @@ const (
 	FlagFullscreenMode = 2
 	// Set to allow resizable window
 	FlagWindowResizable = 4
-	// Set to disable window decoration (frame and buttons)
-	FlagWindowUndecorated = 8
+	// Set to show window decoration (frame and buttons)
+	FlagWindowDecorated = 8
 	// Set to allow transparent window
 	FlagWindowTransparent = 16
 	// Set to try enabling MSAA 4X
@@ -219,80 +219,50 @@ const (
 	KeyLeftShift    = 340
 	KeyLeftControl  = 341
 	KeyLeftAlt      = 342
-	KeyLeftSuper    = 347
 	KeyRightShift   = 344
 	KeyRightControl = 345
 	KeyRightAlt     = 346
-	KeyRightSuper   = 347
-	KeyKbMenu       = 348
-	KeyLeftBracket  = 91
-	KeyBackSlash    = 92
-	KeyRightBracket = 93
 	KeyGrave        = 96
-
-	// Keyboard Number Pad Keys
-	KeyKp0        = 320
-	KeyKp1        = 321
-	KeyKp2        = 322
-	KeyKp3        = 323
-	KeyKp4        = 324
-	KeyKp5        = 325
-	KeyKp6        = 326
-	KeyKp7        = 327
-	KeyKp8        = 328
-	KeyKp9        = 329
-	KeyKpDecimal  = 330
-	KeyKpDivide   = 331
-	KeyKpMultiply = 332
-	KeyKpSubtract = 333
-	KeyKpAdd      = 334
-	KeyKpEnter    = 335
-	KeyKpEqual    = 336
+	KeySlash        = 47
+	KeyBackSlash    = 92
 
 	// Keyboard Alpha Numeric Keys
-	KeyApostrophe = 39
-	KeyComma      = 44
-	KeyMinus      = 45
-	KeyPeriod     = 46
-	KeySlash      = 47
-	KeyZero       = 48
-	KeyOne        = 49
-	KeyTwo        = 50
-	KeyThree      = 51
-	KeyFour       = 52
-	KeyFive       = 53
-	KeySix        = 54
-	KeySeven      = 55
-	KeyEight      = 56
-	KeyNine       = 57
-	KeySemicolon  = 59
-	KeyEqual      = 61
-	KeyA          = 65
-	KeyB          = 66
-	KeyC          = 67
-	KeyD          = 68
-	KeyE          = 69
-	KeyF          = 70
-	KeyG          = 71
-	KeyH          = 72
-	KeyI          = 73
-	KeyJ          = 74
-	KeyK          = 75
-	KeyL          = 76
-	KeyM          = 77
-	KeyN          = 78
-	KeyO          = 79
-	KeyP          = 80
-	KeyQ          = 81
-	KeyR          = 82
-	KeyS          = 83
-	KeyT          = 84
-	KeyU          = 85
-	KeyV          = 86
-	KeyW          = 87
-	KeyX          = 88
-	KeyY          = 89
-	KeyZ          = 90
+	KeyZero  = 48
+	KeyOne   = 49
+	KeyTwo   = 50
+	KeyThree = 51
+	KeyFour  = 52
+	KeyFive  = 53
+	KeySix   = 54
+	KeySeven = 55
+	KeyEight = 56
+	KeyNine  = 57
+	KeyA     = 65
+	KeyB     = 66
+	KeyC     = 67
+	KeyD     = 68
+	KeyE     = 69
+	KeyF     = 70
+	KeyG     = 71
+	KeyH     = 72
+	KeyI     = 73
+	KeyJ     = 74
+	KeyK     = 75
+	KeyL     = 76
+	KeyM     = 77
+	KeyN     = 78
+	KeyO     = 79
+	KeyP     = 80
+	KeyQ     = 81
+	KeyR     = 82
+	KeyS     = 83
+	KeyT     = 84
+	KeyU     = 85
+	KeyV     = 86
+	KeyW     = 87
+	KeyX     = 88
+	KeyY     = 89
+	KeyZ     = 90
 
 	// Android keys
 	KeyBack       = 4
@@ -357,24 +327,6 @@ const (
 	GamepadXboxButtonDown   = 12
 	GamepadXboxButtonLeft   = 13
 	GamepadXboxButtonHome   = 8
-
-	// Android Gamepad Controller (SNES CLASSIC)
-	GamepadAndroidDpadUp     = 19
-	GamepadAndroidDpadDown   = 20
-	GamepadAndroidDpadLeft   = 21
-	GamepadAndroidDpadRight  = 22
-	GamepadAndroidDpadCenter = 23
-
-	GamepadAndroidButtonA  = 96
-	GamepadAndroidButtonB  = 97
-	GamepadAndroidButtonC  = 98
-	GamepadAndroidButtonX  = 99
-	GamepadAndroidButtonY  = 100
-	GamepadAndroidButtonZ  = 101
-	GamepadAndroidButtonL1 = 102
-	GamepadAndroidButtonR1 = 103
-	GamepadAndroidButtonL2 = 104
-	GamepadAndroidButtonR2 = 105
 
 	// Xbox360 USB Controller Axis
 	// [-1..1] (left->right)
@@ -889,25 +841,25 @@ const (
 // VrDeviceInfo - Head-Mounted-Display device parameters
 type VrDeviceInfo struct {
 	// HMD horizontal resolution in pixels
-	HResolution int
+	hResolution int
 	// HMD vertical resolution in pixels
-	VResolution int
+	vResolution int
 	// HMD horizontal size in meters
-	HScreenSize float32
+	hScreenSize float32
 	// HMD vertical size in meters
-	VScreenSize float32
+	vScreenSize float32
 	// HMD screen center in meters
-	VScreenCenter float32
+	vScreenCenter float32
 	// HMD distance between eye and display in meters
-	EyeToScreenDistance float32
+	eyeToScreenDistance float32
 	// HMD lens separation distance in meters
-	LensSeparationDistance float32
+	lensSeparationDistance float32
 	// HMD IPD (distance between pupils) in meters
-	InterpupillaryDistance float32
+	interpupillaryDistance float32
 	// HMD lens distortion constant parameters
-	LensDistortionValues [4]float32
+	lensDistortionValues [4]float32
 	// HMD chromatic aberration correction parameters
-	ChromaAbCorrection [4]float32
+	chromaAbCorrection [4]float32
 }
 
 // NewVrDeviceInfo - Returns new VrDeviceInfo
@@ -1113,7 +1065,7 @@ func NewImageFromImage(img image.Image) *Image {
 		for x := 0; x < size.X; x++ {
 			color := img.At(x, y)
 			r, g, b, a := color.RGBA()
-			pixels[x+y*size.X] = NewColor(uint8(r), uint8(g), uint8(b), uint8(a))
+			pixels[x+y*size.Y] = NewColor(uint8(r), uint8(g), uint8(b), uint8(a))
 		}
 	}
 

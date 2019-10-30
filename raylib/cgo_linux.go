@@ -17,8 +17,6 @@ package rl
 #include "external/glfw/src/wayland-pointer-constraints-unstable-v1-client-protocol.c"
 #include "external/glfw/src/wayland-relative-pointer-unstable-v1-client-protocol.c"
 #include "external/glfw/src/wayland-idle-inhibit-unstable-v1-client-protocol.c"
-#include "external/glfw/src/wayland-xdg-shell-client-protocol.c"
-#include "external/glfw/src/wayland-viewporter-client-protocol.c"
 #endif
 #ifdef _GLFW_X11
 #include "external/glfw/src/x11_init.c"
@@ -34,7 +32,7 @@ package rl
 #include "external/glfw/src/egl_context.c"
 #include "external/glfw/src/osmesa_context.c"
 
-#cgo linux CFLAGS: -Iexternal/glfw/include -DPLATFORM_DESKTOP -Wno-stringop-overflow
+#cgo linux CFLAGS: -Iexternal -Iexternal/glfw/include -DPLATFORM_DESKTOP
 
 #cgo linux,!wayland LDFLAGS: -lGL -lm -pthread -ldl -lrt -lX11
 #cgo linux,wayland LDFLAGS: -lGL -lm -pthread -ldl -lrt -lwayland-client -lwayland-cursor -lwayland-egl -lxkbcommon

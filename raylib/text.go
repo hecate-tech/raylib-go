@@ -17,9 +17,9 @@ func (s *Font) cptr() *C.Font {
 	return (*C.Font)(unsafe.Pointer(s))
 }
 
-// GetFontDefault - Get the default Font
-func GetFontDefault() Font {
-	ret := C.GetFontDefault()
+// GetDefaultFont - Get the default Font
+func GetDefaultFont() Font {
+	ret := C.GetDefaultFont()
 	v := newFontFromPointer(unsafe.Pointer(&ret))
 	return v
 }
