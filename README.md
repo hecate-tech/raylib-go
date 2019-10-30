@@ -10,6 +10,17 @@ Golang bindings for [raylib](http://www.raylib.com/), a simple and easy-to-use l
 
 ![screenshot](https://goo.gl/q6DAoy)
 
+### Why does this repo exist?
+
+Why use this version of raylib instead of gen2brain/raylib-go?
+
+Well there are many drawbacks to using this version. The main point of using this version though is if
+you're using raylib for 3D game development.
+
+If you're using gen2brain currently on v2.1. Models and textures don't work properly.
+
+This repository is just a clone of the v2.0 version for the raylib-go repository since it's not versioned to Go standards.
+
 ### Requirements
 
 ##### Ubuntu
